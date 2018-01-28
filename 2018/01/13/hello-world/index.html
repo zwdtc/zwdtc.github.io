@@ -6,7 +6,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang=""><!--<![endif]-->
 <head>
     <meta charset="UTF-8">
-    <title>Hello World</title>
+    <title>深度学习中那些常用的图像数据集</title>
 
     <meta name="author" content="John Doe">
 
@@ -102,21 +102,32 @@
         <div>
     <article class="hentry" role="article">
         <header>
-            <h1 class="entry-title">Hello World</h1>
+            <h1 class="entry-title">深度学习中那些常用的图像数据集</h1>
             <p class="meta">
                 <time datetime="2018-01-13T14:29:32.919Z" data-updated="true">Sat Jan 13 2018</time>
             </p>
         </header>
         <div class="entry-content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p>在深度学习模型前期的训练中，数据集的选择会直接决定最后生成的模型的performance。有些成熟的数据集可以使我们的模型轻易的取得很高的预测准确率（&gt;95%），而有些新的数据集仍然在不断的发展，远没有达到完善的地步。今天主要像大家介绍一下在图像分类领域中那些“有名”的数据集。</p>
+<h2 id="MNIST"><a href="#MNIST" class="headerlink" title="MNIST"></a>MNIST</h2><p><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">MNIST</a>(NIST全称为National Institute of Standards and Technology, 而M代表“modified”，所有的图片都经过了预处理，减少了图片边缘无用的信息，这样就可以专注于对0 - 9十个数字的识别)数据集可以说是机器学习和图像识别领域入门时最常用的一个数据集，因为它简单，专注，广泛应用于教学和科研领域。</p>
+<p>MNIST数据集的目的是在各种情况下用来识别手写的0 - 9十个阿拉伯数字。在很多情况下，此数据集作为一个检测标准来判定机器学习算法的好坏。正如Geoffrey Hinton老爷子所说的：MNIST is the drosophila of machine learning。 翻译过来的意思是MMIST在机器学习中的地位相当于果蝇和小白鼠在生物实验中的地位（如不认识Geoffrey Hinton，请自行百度，如不知道果蝇和小白鼠，请直接联系你的高中生物老师）。</p>
+<p>  <img src="https://i.imgur.com/OcLpAOR.png" alt=""> </p>
+<p>Figure 1.MNIST数据集的一些例子。</p>
+<p>MNIST数据集包括60000张训练图片和10000张测试图片。每一张图片由784个像素组成，具体尺寸为28*28的灰度图。像素分布在[0,255]之间，其中背景颜色为黑色，主体颜色为白色。</p>
+<h2 id="CIFAR-10"><a href="#CIFAR-10" class="headerlink" title="CIFAR-10"></a>CIFAR-10</h2><p>和MNIST一样，<a href="http://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="noopener">CIFAR-10</a>也是一个常用的机器学习测试标准集，CIFAR-10包括60000张32<em>32</em>3（RGB）的图片，每张图片由3072个像素点组成。</p>
+<p>正如这个名字所描述的，CIFAR-10包括了10种物体的分类：飞机，汽车，鸟，猫，狗，小鹿，青蛙，山羊和卡车。CIFAR还有一个升级版的数据集叫做CIFAR-100，包括了100类各种各样的物体，具体可查阅官方网站。</p>
+<p><img src="https://i.imgur.com/DpILuz1.jpg" alt=""><br>Figure 2. CIFAR-10中的一些例程图片。</p>
+<p>相比于MNIST，CIFAR-10最大的一个不同是丰富多彩的背景和颜色。举个例子，我们这里很难假设在图形中有绿色部分的就是青蛙，绿色部分也有可能是毫无相关的背景色，也有可能是一辆绿色卡车的一部分。所以相比于入门级的MNIST，CIFAR-10更集中的使用在卷积神经网络（CNN）架构中。</p>
+<h2 id="SMILES"><a href="#SMILES" class="headerlink" title="SMILES"></a>SMILES</h2><p>正如这个名字所表明的一样，SMILES数据集包含的图片只有两类：笑，没笑。SMILES数据集总共有13165张灰度图片，每张图片的尺寸为64*64。据作者本人探索里面还收集了一些名人的肖像图，让机器去分辨头像是否有笑容还是挺有意思的。</p>
+<p><img src="https://i.imgur.com/9yTvHDN.png" alt=""></p>
+<p>Figure 3. 上排：微笑表情，下排：非微笑表情</p>
+<h2 id="Kaggle-Dogs-vs-Cats"><a href="#Kaggle-Dogs-vs-Cats" class="headerlink" title="Kaggle:Dogs vs. Cats"></a>Kaggle:Dogs vs. Cats</h2><p>作为世界上最大的机器学习数据平台，<a href="https://www.kaggle.com/" target="_blank" rel="noopener">Kaggle</a>(貌似这家澳洲的公司刚刚被Google收购了)下著名的比赛之一，Dogs vs. Cats包含了多达25000张各种尺寸的猫和狗图片供选手进行训练和优化算法。由于此数据集的图片尺寸不固定，这就对前期图像处理算法（image preprocessing algorithm）提出的比较高的要求。而此数据集也成了获得小猫小狗数据的首选。</p>
+<p><img src="https://i.imgur.com/VQVYcdZ.png" alt="Kaggle: Dogs vs. Cats"></p>
+<p>Figure 4. Kaggle: Dogs vs. Cats</p>
+<h2 id="ImageNet"><a href="#ImageNet" class="headerlink" title="ImageNet"></a>ImageNet</h2><p>如果你是一个计算机视觉和深度学习爱好者的话，你应该听说过<a href="http://www.image-net.org/" target="_blank" rel="noopener">ImageNet</a>,ImageNet是世界上最大，分类最全的图像库，截至目前为止，ImageNet已经有了22000种分类集，总共包括了1400多万张的图片，简直是一个庞然大物。</p>
+<p>但是ImageNet主要出名的一个原因是旗下有一个关于图像分类的比赛ImageNet Large Scale Visual Recognition Challenge (<a href="http://www.image-net.org/challenges/LSVRC/" target="_blank" rel="noopener">ILSVRC</a>),吸引着众多学术界和工业界的大公司和研究所参加，竞争非常激烈。ILSVRC的主要任务是训练一个模型能够为1200个类别的图片进行分类，使用120万张的图片进行训练（training）和5万张图片进行验证（validation）。</p>
+<p><img src="https://i.imgur.com/IWGzGv3.png" alt=""></p>
+<p>Figure 5.ImageNet set example</p>
 
         </div>
         <footer>
@@ -128,7 +139,7 @@
             <div class="sharing">
     
         <a class="twitter-share-button"
-           href="https://twitter.com/intent/tweet?text=Hello%20World">
+           href="https://twitter.com/intent/tweet?text=%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E9%82%A3%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E9%9B%86">
             Tweet
         </a>
     
@@ -149,7 +160,7 @@
 <aside class="sidebar">
     <section class="odd">
     <h1>Recent Posts</h1>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/13/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/13/hello-world/">深度学习中那些常用的图像数据集</a></li></ul>
 </section><section class="even">
     <h1>GitHub Repos</h1>
     <ul id="gh_repos">
